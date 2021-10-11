@@ -1,0 +1,5 @@
+conversion
+/home/sergio/hexacopter_ws/devel/.private/conversion/cmake.lock /home/sergio/hexacopter_ws/devel/./cmake.lock
+/home/sergio/hexacopter_ws/devel/.private/conversion/share/conversion/cmake/conversionConfig-version.cmake /home/sergio/hexacopter_ws/devel/share/conversion/cmake/conversionConfig-version.cmake
+/home/sergio/hexacopter_ws/devel/.private/conversion/share/conversion/cmake/conversionConfig.cmake /home/sergio/hexacopter_ws/devel/share/conversion/cmake/conversionConfig.cmake
+/home/sergio/hexacopter_ws/devel/.private/conversion/lib/pkgconfig/conversion.pc /home/sergio/hexacopter_ws/devel/lib/pkgconfig/conversion.pc

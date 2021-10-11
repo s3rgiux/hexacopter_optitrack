@@ -1,0 +1,5 @@
+conversion_coordinates
+/home/sergio/hexacopter_ws/devel/.private/conversion_coordinates/cmake.lock /home/sergio/hexacopter_ws/devel/./cmake.lock
+/home/sergio/hexacopter_ws/devel/.private/conversion_coordinates/share/conversion_coordinates/cmake/conversion_coordinatesConfig.cmake /home/sergio/hexacopter_ws/devel/share/conversion_coordinates/cmake/conversion_coordinatesConfig.cmake
+/home/sergio/hexacopter_ws/devel/.private/conversion_coordinates/share/conversion_coordinates/cmake/conversion_coordinatesConfig-version.cmake /home/sergio/hexacopter_ws/devel/share/conversion_coordinates/cmake/conversion_coordinatesConfig-version.cmake
+/home/sergio/hexacopter_ws/devel/.private/conversion_coordinates/lib/pkgconfig/conversion_coordinates.pc /home/sergio/hexacopter_ws/devel/lib/pkgconfig/conversion_coordinates.pc
