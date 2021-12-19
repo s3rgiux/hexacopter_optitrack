@@ -192,12 +192,12 @@ int main(int argc, char **argv)
     geometry_msgs::PoseStamped pose;
     pose.pose.position.x = 0;
     pose.pose.position.y = 0;
-    pose.pose.position.z = 0.6;  
+    pose.pose.position.z = 0.9;  
 
     geometry_msgs::TwistStamped velocity_cmd;
     velocity_cmd.twist.linear.x = 0;
     velocity_cmd.twist.linear.y = 0;
-    velocity_cmd.twist.linear.z = -0.6;  
+    //velocity_cmd.twist.linear.z = -0.6;  
 
     //send a few setpoints before starting
     for(int i = 100; ros::ok() && i > 0; --i){
@@ -242,28 +242,38 @@ int main(int argc, char **argv)
                 started_mission_time = ros::Time::now();
             }
         }
-        if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time < ros::Duration(10.0)){
+
+        if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time < ros::Duration(5.0)){
 		ROS_INFO("take off");
+        	
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(7.0) && ros::Time::now() - started_mission_time < ros::Duration(14.0) ){
+        	pose.pose.position.x = 0;
+    		pose.pose.position.y = 0.3;
+    		pose.pose.position.z = 0.9;
+                local_pos_pub.publish(pose);
+                ROS_INFO("new_pose 1");
+		
+                //local_vel_pub.publish(velocity_cmd);
+        	
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(14.0) && ros::Time::now() - started_mission_time < ros::Duration(19.0) ){
         	pose.pose.position.x = 0;
     		pose.pose.position.y = 0;
-    		pose.pose.position.z = 0.60;
-	}/*else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(10.0) && ros::Time::now() - started_mission_time < ros::Duration(12.0) ){
-                ROS_INFO("wp1");
-        	pose.pose.position.x = -0.10;
+    		pose.pose.position.z = 0.9;
+                local_pos_pub.publish(pose);
+                ROS_INFO("returning");
+		
+                //local_vel_pub.publish(velocity_cmd);
+        	
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(19.0) && ros::Time::now() - started_mission_time < ros::Duration(21.0) ){
+        	pose.pose.position.x = 0;
     		pose.pose.position.y = 0;
-    		pose.pose.position.z = 0.60;
-	}*/else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(10.0) && ros::Time::now() - started_mission_time < ros::Duration(20.0) ){
-        	//pose.pose.position.x = -0.10;
-    		//pose.pose.position.y = 0;
-    		//pose.pose.position.z = -0.2;
-                //local_pos_pub.publish(pose);
+    		pose.pose.position.z = -0.2;
+                local_pos_pub.publish(pose);
                 ROS_INFO("land");
 		
-                local_vel_pub.publish(velocity_cmd);
-        	//pose.pose.position.x = -0.40;
-    		//pose.pose.position.y = 0;
-    		//pose.pose.position.z = -0.050;
-	}else if(ros::Time::now() - started_mission_time > ros::Duration(25.0)){
+                //local_vel_pub.publish(velocity_cmd);
+        	
+	}else if(ros::Time::now() - started_mission_time > ros::Duration(19.0)){
                 finished = true;
                 //local_vel_pub.publish(velocity_cmd);
 		ROS_INFO("disarm");
