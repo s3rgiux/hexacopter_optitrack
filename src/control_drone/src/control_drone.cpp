@@ -246,7 +246,16 @@ int main(int argc, char **argv)
         if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time < ros::Duration(5.0)){
 		ROS_INFO("take off");
         	
-	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(7.0) && ros::Time::now() - started_mission_time < ros::Duration(14.0) ){
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(6.0) && ros::Time::now() - started_mission_time < ros::Duration(10.0) ){
+        	pose.pose.position.x = 0;
+    		pose.pose.position.y = 0.0;
+    		pose.pose.position.z = 0.6;
+                local_pos_pub.publish(pose);
+                ROS_INFO("new_pose 1");
+		
+                //local_vel_pub.publish(velocity_cmd);
+        	
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(10.0) && ros::Time::now() - started_mission_time < ros::Duration(14.0) ){
         	pose.pose.position.x = 0;
     		pose.pose.position.y = 0.3;
     		pose.pose.position.z = 0.6;
@@ -255,25 +264,43 @@ int main(int argc, char **argv)
 		
                 //local_vel_pub.publish(velocity_cmd);
         	
-	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(14.0) && ros::Time::now() - started_mission_time < ros::Duration(19.0) ){
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(14.0) && ros::Time::now() - started_mission_time < ros::Duration(18.0) ){
         	pose.pose.position.x = 0;
-    		pose.pose.position.y = 0;
+    		pose.pose.position.y = 0.0;
+    		pose.pose.position.z = 0.6;
+                local_pos_pub.publish(pose);
+                ROS_INFO("new_pose 2");
+		
+                //local_vel_pub.publish(velocity_cmd);
+        	
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(18.0) && ros::Time::now() - started_mission_time < ros::Duration(22.0) ){
+        	pose.pose.position.x = 0;
+    		pose.pose.position.y = -0.3;
     		pose.pose.position.z = 0.6;
                 local_pos_pub.publish(pose);
                 ROS_INFO("returning");
 		
                 //local_vel_pub.publish(velocity_cmd);
         	
-	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(19.0) && ros::Time::now() - started_mission_time < ros::Duration(21.0) ){
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(22.0) && ros::Time::now() - started_mission_time < ros::Duration(26.0) ){
+        	pose.pose.position.x = 0;
+    		pose.pose.position.y = 0.0;
+    		pose.pose.position.z = 0.6;
+                local_pos_pub.publish(pose);
+                ROS_INFO("returning");
+		
+                //local_vel_pub.publish(velocity_cmd);
+        	
+	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(26.0) && ros::Time::now() - started_mission_time < ros::Duration(30.0) ){
         	pose.pose.position.x = 0;
     		pose.pose.position.y = 0;
-    		pose.pose.position.z = -0.2;
+    		pose.pose.position.z = -0.3;
                 local_pos_pub.publish(pose);
                 ROS_INFO("land");
 		
                 //local_vel_pub.publish(velocity_cmd);
         	
-	}else if(ros::Time::now() - started_mission_time > ros::Duration(19.0)){
+	}else if(ros::Time::now() - started_mission_time > ros::Duration(30.0)){
                 finished = true;
                 //local_vel_pub.publish(velocity_cmd);
 		ROS_INFO("disarm");

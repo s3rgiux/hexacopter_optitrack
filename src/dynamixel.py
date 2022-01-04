@@ -8,8 +8,12 @@ serial = ServoSerial('/dev/ttyUSB0')  # tell it what port you want to use
 serial.open()
 
 angle1=158
-angle2=140
+angle2=147
 angle3=230
+
+#angle1=158
+#angle2=147
+#angle3=230
 
 time.sleep(0.1)
 pkt = Packet.makeServoPacket(11, angle1)  # move servo 1 to angle1 degrees
