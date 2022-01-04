@@ -192,7 +192,7 @@ int main(int argc, char **argv)
     geometry_msgs::PoseStamped pose;
     pose.pose.position.x = 0;
     pose.pose.position.y = 0;
-    pose.pose.position.z = 0.9;  
+    pose.pose.position.z = 0.6;  
 
     geometry_msgs::TwistStamped velocity_cmd;
     velocity_cmd.twist.linear.x = 0;
@@ -249,7 +249,7 @@ int main(int argc, char **argv)
 	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(7.0) && ros::Time::now() - started_mission_time < ros::Duration(14.0) ){
         	pose.pose.position.x = 0;
     		pose.pose.position.y = 0.3;
-    		pose.pose.position.z = 0.9;
+    		pose.pose.position.z = 0.6;
                 local_pos_pub.publish(pose);
                 ROS_INFO("new_pose 1");
 		
@@ -258,7 +258,7 @@ int main(int argc, char **argv)
 	}else if(enabled_first_time && vehicle_armed && ros::Time::now() - started_mission_time > ros::Duration(14.0) && ros::Time::now() - started_mission_time < ros::Duration(19.0) ){
         	pose.pose.position.x = 0;
     		pose.pose.position.y = 0;
-    		pose.pose.position.z = 0.9;
+    		pose.pose.position.z = 0.6;
                 local_pos_pub.publish(pose);
                 ROS_INFO("returning");
 		
