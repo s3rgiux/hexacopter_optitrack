@@ -54,13 +54,31 @@ Build workspace with
 catkin_make
 ```
 
-#Launch
+Add the setup.bash file to .bashrc. Open with gedit .bashrc using in home route
 
-To launch replace the ip of the next line, with the ip adress of the Motive computer that is stremming over VRPN.
+```
+gedit .bashrc
+```
+
+and add the line 
+
+```
+source ~/quadcoter_ws/devel/setup.bash
+```
+
+
+
+# Launch
+
+To launch, first make sure you have connected the pixhawk via USB, and is connected as ```/dev/ttyACM0```.
+
+Secondly, type the next line and replace the ip, with the ip adress of the Motive computer that is stremming over VRPN.
 
 ```
  roslaunch control_drone launch_vrpn.launch server:=192.168.11.2:3883
 ```
+
+After this command everthing is ready to do position control fight mode using optitrack
 
 # Test
 
@@ -70,7 +88,7 @@ To Test run the script:
  rosrun control_drone control_drone_node
 ```
 
-This dorne wil put PX4 on Offboard mode and could be dangerous so preferently use a RC tranmitter to change the mode just in case
+To run this script the drone should be put first in postion mode, and the program will put PX4 on Offboard mode, this mode could be dangerous so preferently use a RC tranmitter to change the mode to Manual if is needed.
 
 
 
